@@ -1,0 +1,91 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <title>Compress PDF</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="stylesheets/index.css">
+        <meta charset="utf-8">
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/3.4/javascript/">
+
+
+        <link
+            href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+            rel="stylesheet"
+            id="bootstrap-css"
+        />
+        <link
+            href="https://getbootstrap.com/docs/3.4/assets/css/docs.min.css"
+            rel="stylesheet"
+            id="bootstrap-css"
+        />
+
+    </head>
+    <body>
+
+        <div class="large-header" style="background-image: linear-gradient(to bottom,#d9534f 0,#6f5499 100%)">
+                <div class="row">
+                    <div class="offset-md-2 col-md-5">
+                        <h1 style="font-family:Georgia; font-size:48px;margin-top:8px;">Compress PDF</h1>
+
+                        <p style="font-size:16px">1. Upload PDF files from your computer.</p>
+                        <p style="font-size:16px">2. Select the compression way for your pdf files.</p>
+                        <p style="font-size:16px">3. Download the compressed pdf file.</p>
+                    </div>
+
+                    <div class="offset-md-1">
+                        <img src="pdf-squeezer.png" alt="pdf iamge" class="carbon-img" border="0" width=""style="max-width:210px">
+                    </div>
+                </div>
+        </div>
+
+        <div class="upload-form">
+            <form action="/upload" method="post" enctype="multipart/form-data", onsubmit="return check(this)">
+                <div>
+                  <input  disabled id="upload-file-info" type="text" placeholder="Upload your file" >
+                </div>
+
+                <div class="buttons-group">
+
+                    <label class="btn btn-primary" for="file-selector" style="margin-right:15px">
+                        <input id="file-selector" name = "pdf" type="file" style="display:none"
+                        onchange="displayFilename(this)">
+                        Choose File
+                    </label>
+
+                    <input class="submit-file" type="submit" value="Submit">
+                </div>
+
+            </form>
+        </div>
+
+    </body>
+
+    <script>
+        // display the file name
+        function displayFilename(fileInput) {
+            const textDisplay = document.getElementById("upload-file-info");
+            const fileName = fileInput.value;
+            textDisplay.value = fileName.substring(fileName.lastIndexOf('\\') + 1);
+            textDisplay.style.width = Math.max(textDisplay.value.length, 20) + "ch";
+        }
+
+        // check if you have uploaded a file or not
+        function check(form) {
+
+            if (form.pdf.value == '') {
+                alert('Error: File does not exist!');
+                return false;
+            }
+            // else if (form.pdf.value.lastIndexOf('pdf') === -1) {
+
+            //     alert('Error: It is not a pdf file!');
+            // }
+
+            return true;
+
+        }
+
+    </script>
+</html>

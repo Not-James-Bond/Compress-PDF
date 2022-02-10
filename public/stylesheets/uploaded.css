@@ -1,0 +1,22 @@
+.large-header {
+    padding-top: 30px;
+    height: 250px;
+    color: rgb(201, 199, 199);
+}
+
+.filename {
+    font-weight: bold;
+    color: red;
+    font-size: x-large;
+    text-align: center;
+    margin-bottom:20px;
+
+}
+
+.buttons-group {
+    margin-top: 10px;
+}
+
+.filename {
+    margin-top: 20px;
+}

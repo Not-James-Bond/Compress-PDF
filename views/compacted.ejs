@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Compress</title>
+        <link rel="stylesheet" href="stylesheets/uploaded.css">
+        <link rel="stylesheet" href="stylesheets/index.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="stylesheets/index.css">
+        <meta charset="utf-8">
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/3.4/javascript/">
+
+
+        <link
+            href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+            rel="stylesheet"
+            id="bootstrap-css"
+        />
+        <link
+            href="https://getbootstrap.com/docs/3.4/assets/css/docs.min.css"
+            rel="stylesheet"
+            id="bootstrap-css"
+        />
+
+    </head>
+    <body>
+        <div class="large-header" style="background-image: linear-gradient(to bottom,#d9534f 0,#6f5499 100%)">
+            <div class="row">
+                <div class="offset-md-2 col-md-5">
+                    <h1 style="font-family:Georgia; font-size:48px;margin-top:8px;">Compress PDF</h1>
+
+                    <p style="font-size:16px">1. Upload PDF files from your computer.</p>
+                    <p style="font-size:16px">2. Select the compression way for your pdf files.</p>
+                    <p style="font-size:16px">3. Download the compressed pdf file.</p>
+                </div>
+
+                <div class="offset-md-1">
+                    <img src="pdf-squeezer.png" alt="pdf image" class="carbon-img" border="0" width=""style="max-width:210px">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container box" style="margin-top:60px">
+            <p style="font-size: 18px;text-align: center;" >The size has been already compressed from <strong><%= stats %></strong> KB to <strong><%= statsCompress%></strong> KB.</p>
+            <p style="font-size: 18px;text-align: center;margin-top:20px">Click the icon to download the file!</p>
+            <p style="font-size: 18px;text-align: center;">
+                <%= compactedFile %><a href="/static/compacted/<%= compactedFile %>" target = "_blank" download><img src="PDF-download.jpg", alt ="pdf image", border="0"></a>
+            </p>
+
+        </div>
+
+        <div class="box2 col-lg-offset-5 col-md-offset-6 col-sm-offset-6" style="margin-top: 20px">
+            <a href="/" type="button" class="btn btn-primary" style="margin:5px 10px 5px 70px">
+                Main page
+            </a>
+        </div>
+
+    </body>
