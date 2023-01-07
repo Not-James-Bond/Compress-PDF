@@ -1,0 +1,64 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <title>Compress PDF</title>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    </head>
+    <body>
+        <div style="margin:10px">
+            <a href="/">
+                <i class="glyphicon glyphicon-arrow-left" style="font-size: 18px"></i>
+                <span style="font-size: 18px">Back to main page</span>
+            </a>
+        </div>
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                      <th>Original</th>
+                      <th>Compacted</th>
+                      <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% for (let i = 0; i < pdfFiles.length; i++) { %>
+                        <tr id="row<%= i %>">
+
+                            <td><a href="/static/original/<%= pdfFiles[i][0] %>" style="color:rgb(99, 98, 98)"><span id="row<%= i %>File"><%= pdfFiles[i][0] %></span></a></td>
+                            <td><a href="/static/compacted/<%= pdfFiles[i][1] %>" style="color:rgb(99 ,98, 98)"><span><%= pdfFiles[i][1] %></span></a></td>
+                            <td><button onclick="deleteRow(<%= i %>)">DELETE</button></td>
+
+                        </tr>
+                    <% } %>
+                </tbody>
+
+            </table>
+        </div>
+    </body>
+    <script>
+        // delete the given row on the web page and send the request of deleting the original and compacted files whose names are displayed on the given row
+        function deleteRow(idNum) {
+            let fileId = "row" + idNum + "File";
+            let fileElement = document.getElementById(fileId);
+            let fileName = fileElement.textContent;
+
+            let id = "row" + idNum;
+            let rowElement = document.getElementById(id);
+            rowElement.remove();
+
+            const xhttp = new XMLHttpRequest();
+
+            xhttp.open("GET", "/delete?fileName=" + fileName, true);
+
+            // JSON
+            xhttp.send();
+        }
+    </script>
+</html>

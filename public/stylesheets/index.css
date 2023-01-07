@@ -1,0 +1,47 @@
+.large-header {
+    padding-top: 30px;
+    height: 250px;
+    color: rgb(201, 199, 199);
+}
+
+.upload-form {
+    margin-top: 70px;
+    height: 120px;
+    text-align: center;
+}
+
+input[type="text"] {
+    background:#fff;
+    display: flex;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    border-radius: 24px;
+    z-index: 3;
+    height: 44px;
+    margin:0 auto;
+    width: 482px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.submit-button {
+    margin-top: 10px;
+}
+
+.buttons-group {
+    margin-top: 5px;
+    padding-top: 18px;
+    height: 70px;
+
+}
+
+.submit-file {
+    background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    border-radius: 6px;
+    color: #5F6368;
+    font-family: arial,sans-serif;
+
+    padding: 7px 27px 7px 27px;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Upload</title>
+        <link rel="stylesheet" href="stylesheets/uploaded.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <meta charset="utf-8">
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/3.4/javascript/">
+
+        <link
+            href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+            rel="stylesheet"
+            id="bootstrap-css"
+        />
+        <link
+            href="https://getbootstrap.com/docs/3.4/assets/css/docs.min.css"
+            rel="stylesheet"
+            id="bootstrap-css"
+        />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="large-header" style="background-image: linear-gradient(to bottom,#d9534f 0,#6f5499 100%)">
+                <div class="row">
+                    <div class="offset-md-2 col-md-5">
+                        <h1 style="font-family:Georgia; font-size:48px;margin-top:8px;">Compress PDF</h1>
+
+                        <p style="font-size:16px">1. Upload PDF files from your computer.</p>
+                        <p style="font-size:16px">2. Select the compression way for your pdf files.</p>
+                        <p style="font-size:16px">3. Download the compressed pdf file.</p>
+                    </div>
+
+                    <div class="offset-md-1">
+                        <img src="pdf-squeezer.png" alt="pdf image" class="carbon-img" border="0" width=""style="max-width:210px">
+                    </div>
+                </div>
+        </div>
+
+        <p class="filename"><%= filename %> is uploaded successfully!</p>
+
+        <form action="/compact" method="post">
+
+            <div class="box1 col-lg-offset-4 col-md-offset-5 col-sm-offset-5" >
+                <p style="font-size: 16px"><strong>Please choose one of three options or input the dpi directly:</strong></p>
+                <div style="margin-bottom: 6px;">
+                    <input type="radio" id="high quality" name="level" value="300">
+                    <label for="high quality" style="font-weight:lighter;">300 dpi (high quality)</label>
+                </div>
+
+                <div style="margin-bottom: 6px;">
+                    <input type="radio" id="normal quality" name="level" value="144">
+                    <label for="normal quality" style="font-weight:lighter;">144 dpi (normal quality)</label>
+                </div>
+
+                <div style="margin-bottom: 6px;">
+                    <input type="radio" id="low quality" name="level" value="60">
+                    <label for="low quality" style="font-weight:lighter;">60 dpi (low quality)</label>
+                </div>
+
+                <div>
+                    <input hidden type="text" name="filename" value="<%= filename %>">
+                    <input type="text" name="resolution" placeholder="eg. 100">
+                </div>
+
+                <div class="buttons-group">
+                    <a class="btn btn-primary" id="returnButton" href="/">Back</a>
+                    <input class="btn btn-secondary" type="submit" value="Process">
+                </div>
+            </div>
+
+
+        </form>
+
+
+        <br>
+        <br>
+        <hr>
+        
+        <div class="container box">
+            <div class="row">
+                <div class="intro" style="margin-top:10px">
+                    <br>
+                    <p style="font-size:20px"><strong>Some hints for performing some operations on this web page:</strong></p>
+                    <p style="font-size:16px">1. There are two ways to input the dpi.</p>
+                    <p style="font-size:16px">2. You can input the dpi directly.</p>
+                    <p style="font-size:16px">3. You can choose one from three options.</p>
+                    <p style="font-size:16px">4. If you input the dpi and also do the selection, the option you have already chose has high priority.</p>
+                </div>
+
+                <div class="photo col-md-offset-2 col-sm-offset-0"><img src="pdf_dancing.gif" alt="pdf image" height="200" width="200"></div>
+            </div>
+        </div>
+
+
+    </body>
+    <script>
+        // from stack-over-flow: https://stackoverflow.com/questions/10876953/how-to-make-a-radio-button-unchecked-by-clicking-it
+        $("input:radio").on("click", function(e) {
+            var inp = $(this); //cache the selector
+            if (inp.is(".theone")) { //see if it has the selected class
+                inp.prop("checked",false).removeClass("theone");
+                return;
+            }
+            $("input:radio[name='"+inp.prop("name")+"'].theone").removeClass("theone");
+            inp.addClass("theone");
+        });
+    </script>
+</html>
